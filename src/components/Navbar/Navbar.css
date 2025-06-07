@@ -1,51 +1,206 @@
-.navbar{
+.navbar {
     width: 100%;
-    padding: 20px 0px;
+    padding: 15px 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    transition: all 0.3s ease;
+    background-color: transparent;
 }
 
-.navbar .logo{
-    width: 150px;
+.navbar-scrolled {
+    background-color: rgba(255, 255, 255, 0.9);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    padding: 10px 0;
 }
 
-.navbar-menu{
+.navbar .logo {
+    width: 140px;
+    height: auto;
+    transition: all 0.3s ease;
+}
+
+.navbar-menu {
     display: flex;
     list-style: none;
-    gap: 20px;
+    gap: 30px;
     color: #49557e;
-    font-size: 18px;
+    font-size: 16px;
+    font-weight: 500;
 }
 
-.navbar-right{
+.navbar-menu li {
+    cursor: pointer;
+    position: relative;
+}
+
+.navbar-right {
     display: flex;
     align-items: center;
-    gap: 40px;
+    gap: 25px;
 }
 
-.navbar button{
+.navbar .icon-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #49557e;
+}
+
+.signin-btn {
     background: transparent;
     font-size: 16px;
     color: #49557e;
-    border: 1px solid tomato;
-    padding: 10px 30px;
+    border: 1px solid #f54748;
+    padding: 8px 20px;
     border-radius: 50px;
     cursor: pointer;
-    transition: 0.3s;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
-.navbar button:hover{
-    background-color: #fff4f2;
+.user-icon {
+    margin-right: 4px;
 }
 
-.navbar .active{
-    padding-bottom: 2px;
-    border-bottom: 2px solid #49557e;
+.navbar .active {
+    color: #f54748;
+    font-weight: 600;
+    position: relative;
 }
 
-.navbar li{
+.navbar .active::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #f54748;
+    border-radius: 2px;
+}
+
+/* Cart count badge */
+.navbar-search-icon {
+    position: relative;
+}
+
+.cart-count {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: #f54748;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    height: 18px;
+    width: 18px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Mobile Menu */
+.mobile-menu-toggle {
+    display: none;
+}
+
+.mobile-menu-toggle button {
+    background: none;
+    border: none;
+    color: #49557e;
     cursor: pointer;
+    padding: 5px;
+}
+
+.mobile-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+    overflow: hidden;
+}
+
+.mobile-menu-links {
+    list-style: none;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.mobile-menu-links li {
+    padding: 10px 0;
+    border-bottom: 1px solid #f0f0f0;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.mobile-menu-links li:last-child {
+    border-bottom: none;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 1024px) {
+    .navbar-menu {
+        gap: 20px;
+    }
+    .navbar-right {
+        gap: 15px;
+    }
+    .signin-btn {
+        padding: 8px 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .desktop-menu {
+        display: none;
+    }
+    .mobile-menu-toggle {
+        display: block;
+        order: 3;
+    }
+    .navbar-right {
+        order: 2;
+    }
+    .navbar .logo {
+        order: 1;
+    }
+    .navbar {
+        padding: 15px 0;
+    }
+    .mobile-menu {
+        display: block;
+    }
+    .navbar-right {
+        gap: 15px;
+    }
+    .signin-btn span {
+        display: none;
+    }
+    .signin-btn {
+        padding: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .user-icon {
+        margin-right: 0;
+    }
 }
 
 .navbar-search-icon{
